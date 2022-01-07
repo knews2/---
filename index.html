@@ -25,6 +25,12 @@
       })
       }
 
+      if(location.hash){
+          fetchPage(location.hash.substr(2));
+      } else {
+        fetchPage('welcome');
+      }
+
       fetch('list').then(function(response){
         response.text().then(function(text){
         var items = text.split(',')
@@ -41,11 +47,7 @@
         })
       })
 
-      if(location.hash){
-          fetchPage(location.hash.substr(2));
-      } else {
-        fetchPage('welcome');
-      }
+      
 
       
   </script>
