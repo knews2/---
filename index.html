@@ -13,30 +13,26 @@
   ">
   <ol>
     <li><a onclick="
-      fetch('html').then(function(response){
-        response.text().then(function(text){
-          document.querySelector('article').innerHTML = text;
-        })
-      });
+    fetchPage('html');
     ">HTML</a></li>
     <li><a onclick="
-      fetch('css').then(function(response){
-        response.text().then(function(text){
-          document.querySelector('article').innerHTML = text;
-        })
-      });
+    fetchPage('css');
     ">CSS</a></li>
     <li><a onclick="
-      fetch('javascript').then(function(response){
-        response.text().then(function(text){
-          document.querySelector('article').innerHTML = text;
-        })
-      });
+      fetchPage('javascript');
     ">JavaScript</a></li>
   </ol>
   <article>
  
   </article>
-  </p>
+  <script>
+      function fetchPage(name){
+        fetch(name).then(function(response){
+        response.text().then(function(text){
+          document.querySelector('article').innerHTML = text;
+        })
+      })
+      }
+  </script>
 </body>
 </html>
