@@ -27,7 +27,17 @@
 
       fetch('list').then(function(response){
         response.text().then(function(text){
-        document.querySelector('ol').innerHTML = text;
+        var items = text.split(',')
+        var i = 0;
+        var tags = '';
+        while(i<items.length){
+            var item = items[i];
+            item = item.trim();
+            var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\');">'+item+'</a></li>'
+            tags += tag;
+            i += 1;
+        }
+        document.querySelector('ol').innerHTML = tags;
         })
       })
 
